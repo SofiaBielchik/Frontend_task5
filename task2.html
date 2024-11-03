@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Бєльчик С.О.</title>
+  <style>
+    table {
+      border-collapse: collapse;
+    }
+    td {
+      width: 50px;
+      height: 50px;
+      text-align: center;
+      border: 1px solid #000;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <label for="colorPicker">Оберіть колір:</label>
+  <input type="color" id="colorPicker" value="#ff0000">
+  <br><br>
+  <table id="table">
+  </table>
+
+  <script>
+    const rows = 6;
+    const cols = 6;
+    const variantNumber = 1; 
+
+    const table = document.getElementById('table');
+    const colorPicker = document.getElementById('colorPicker');
+
+    function createTable() {
+      let number = 1;
+      for (let i = 0; i < rows; i++) {
+        const row = document.createElement('tr');
+        for (let j = 0; j < cols; j++) {
+          const cell = document.createElement('td');
+          cell.textContent = number;
+
+          if (number === variantNumber) {
+            cell.addEventListener('mouseover', () => {
+              cell.style.backgroundColor = getRandomColor();
+            });
+
+            cell.addEventListener('click', () => {
+              cell.style.backgroundColor = colorPicker.value;
+            });
+
+            cell.addEventListener('dblclick', () => {
+              changeRowColor(row, colorPicker.value);
+            });
+          }
+
+          row.appendChild(cell);
+          number++;
+        }
+        table.appendChild(row);
+      }
+    }
+
+    function getRandomColor() {
+      const letters = '0123456789ABCDEF';
+      let color = '#';
+      for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+      }
+      return color;
+    }
+
+    function changeRowColor(row, color) {
+      for (let cell of row.cells) {
+        cell.style.backgroundColor = color;
+      }
+    }
+
+    createTable();
+  </script>
+  
+</body>
+</html>

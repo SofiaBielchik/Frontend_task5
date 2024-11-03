@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Бєльчик С.О.</title>
+    <link rel="stylesheet" href="style1.css"> 
+    <script src="script1.js"></script> 
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <h2>Форма для заповнення</h2>
+            <form id="userForm">
+                <input type="text" id="fullName" name="fullName" placeholder="ПІБ"><br>
+
+                <input type="text" id="variant" name="variant" placeholder="Варіант"><br>
+
+                <input type="text" id="group" name="group" placeholder="Група"><br>
+
+                <input type="text" id="phone" name="phone" placeholder="Телефон"><br>
+
+                <input type="text" id="idCard" name="idCard" placeholder="ID-карта"><br>
+
+                <button type="button" onclick="validateForm()">Підтвердити</button>
+            </form>
+        </div>
+
+        <div class="output-container">
+            <h2>Введені дані</h2>
+            <p><strong>ПІБ:</strong> <span id="outputFullName"></span></p>
+            <p><strong>Варіант:</strong> <span id="outputVariant"></span></p>
+            <p><strong>Група:</strong> <span id="outputGroup"></span></p>
+            <p><strong>Телефон:</strong> <span id="outputPhone"></span></p>
+            <p><strong>ID-карта:</strong> <span id="outputIdCard"></span></p>
+        </div>
+    </div>
+
+</body>
+</html>
