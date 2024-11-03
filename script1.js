@@ -5,12 +5,14 @@ function validateForm() {
     const phone = document.getElementById('phone').value;
     const idCard = document.getElementById('idCard').value;
 
+
     const namePattern = /^[А-ЯІЇЄҐ][а-яіїєґ']{1,6}\s[А-ЯІЇЄҐ]\.[А-ЯІЇЄҐ]\.$/;  
     const variantPattern = /^\d{2}$/;                                        
     const groupPattern = /^[А-ЯІЇЄҐ]{2}-\d{2}$/;                             
     const phonePattern = /^\(\d{3}\)-\d{3}-\d{2}-\d{2}$/;                    
     const idCardPattern = /^[А-ЯІЇЄҐ]{2}\s№\d{6}$/;                          
 
+   
     let isValid = true;
     const fields = [
         { element: document.getElementById('fullName'), pattern: namePattern },
@@ -25,11 +27,13 @@ function validateForm() {
             field.element.classList.remove('error');  
             field.element.classList.add('valid');     
         } else {
-            field.element.classList.remove('valid'); 
+            field.element.classList.remove('valid');  
             field.element.classList.add('error');     
+            isValid = false;
         }
     });
 
+   
     if (isValid) {
         document.getElementById('outputFullName').textContent = fullName;
         document.getElementById('outputVariant').textContent = variant;

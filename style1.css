@@ -41,10 +41,12 @@ button:hover {
     background-color: #ccc;
 }
 
+
 input[type="text"].valid {
     background-color: white;
     border-color: #ccc;
 }
+
 
 input[type="text"].error {
     background-color: #ffdddd; 
